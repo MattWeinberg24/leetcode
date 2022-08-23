@@ -4,6 +4,7 @@
 
 ### Languages Used
 * **Python**
-  * For problems involving dictionaries/hashmaps
+  * Dictionaries/hashmaps
+  * String manipulation
 * **C**
-  * For problems involving pointer-like data structures (e.g. linked list)
+  * Pointer-like data structures (e.g. linked list)
