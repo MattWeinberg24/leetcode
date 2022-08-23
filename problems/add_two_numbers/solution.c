@@ -38,13 +38,39 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
 }
 
 int main(int argc, char const *argv[]) {
-    int expected = 807;
+    //input
+    int expectedNums[] = {7,0,8};
     int nums1[] = {2,4,3};
     int nums2[] = {5,6,4};
+    struct ListNode * expected = createList(expectedNums,3);
     struct ListNode * l1 = createList(nums1, 3);
     struct ListNode * l2 = createList(nums2, 3);
+
+    //print list info
+    printf("List 1: ");
     printList(l1);
+    printf("List 2: ");
     printList(l2);
+    printf("Expected Output: ");
+    printList(expected);
 
+    // calculate
+    struct ListNode * r = addTwoNumbers(l1,l2);
+    printf("Result: ");
+    printList(r);
 
+    // assert success
+    bool success = assertListEquals(expected,r);
+    if (success) {
+        printf("Success!\n");
+    }
+    else {
+        printf("Failure.\n");
+    }
+
+    // free pointers
+    free(l1);
+    free(l2);
+    free(expected);
+    free(r);
 }
