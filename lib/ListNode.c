@@ -41,6 +41,22 @@ void printList(struct ListNode * head) {
 }
 
 /**
+ * @brief Returns size of linked list given head
+ * 
+ * @param head pointer to head of linked list
+ * @return int length
+ */
+int listSize(struct ListNode * head) {
+    int result = 0;
+    struct ListNode * head_copy = head;
+    while (head_copy != NULL) {
+        result++;
+        head_copy = head_copy->next;
+    }
+    return result;
+}
+
+/**
  * @brief Checks whether two linked lists of ListNode objects are equal
  * 
  * @param head1 Head of first list
