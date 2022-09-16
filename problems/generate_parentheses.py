@@ -35,7 +35,7 @@ def generate(res: List[str], s: str, open_left: int, closed_left: int):
 
     # recursive case
     if open_left > 0:
-        generate(res, s + "(", open_left - 1, closed_left + 1) 
+        generate(res, s + "(", open_left - 1, closed_left + 1)
 
     if closed_left > 0:
         generate(res, s + ")", open_left, closed_left - 1)
