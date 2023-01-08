@@ -1,6 +1,6 @@
 # leetcode
 
-## Leetcode problem answers, extensions, explanations, etc.
+## Practice problem answers, extensions, explanations, etc. from multiple sources (such as leetcode)
 
 ### Languages Used
 * **Python**
