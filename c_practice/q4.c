@@ -25,6 +25,10 @@ the list should have three elements, two twos and a three;
 if the function was given 0 or 1 then the list should be empty). 
 */
 struct node * primeList(unsigned int n) {
+    if (n < 2) {
+        return NULL;
+    }
+
     //prime factorization algorithm adapted from https://www.geeksforgeeks.org/prime-factor/
     struct node * head = malloc(sizeof(struct node));
     struct node * prev = NULL;
@@ -76,8 +80,30 @@ void printAndFree(struct node * head) {
     printf("\n");
 }
 
-int main() {
-    struct node * l = primeList(15);
+/*
+c)
+Write a program that takes a single command line argument,
+converts it into its equivalent unsigned integer representation
+(for example the string "11" should become the unsigned integer 11,
+the string "0" should become the unsigned integer 0, etc.),
+passes it into a call to the first function you implemented above,
+and then passes the pointer that was returned by that function
+into a call to the second function you implemented above -
+compile and run your program with different input values
+to confirm it can handle various cases correctly without crashing
+(e.g., due to problems with pointer initialization, memory management, etc.)
+and that it returns the correct values in each case. 
+*/
+int main(int argc, char * argv[]) {
+    // struct node * l = primeList(15);
+    // printAndFree(l);
+    if (argc != 2) {
+        return 1;
+    }
+    
+    unsigned int n = strtoul(argv[1],NULL,10);
+    struct node * l = primeList(n);
     printAndFree(l);
+
     return 0;
 }
