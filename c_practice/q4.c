@@ -95,15 +95,28 @@ to confirm it can handle various cases correctly without crashing
 and that it returns the correct values in each case. 
 */
 int main(int argc, char * argv[]) {
+    /*
+    d)
+    Declare function pointers of the appropriate types
+    for each of the two functions your program uses,
+    and reimplement your program using those pointers
+    to invoke the functions instead of calling them directly -
+    again compile and test your program to make sure it performs correctly
+    (and produces the same outputs) as the original program did
+    for each of your test cases. 
+    */
+    struct node * (* primeListPtr)(unsigned int) = primeList;
+    void (* printAndFreePtr)(struct node *) = printAndFree;
+
     // struct node * l = primeList(15);
     // printAndFree(l);
     if (argc != 2) {
         return 1;
     }
     
-    unsigned int n = strtoul(argv[1],NULL,10);
-    struct node * l = primeList(n);
-    printAndFree(l);
+    unsigned int n = strtoul(argv[1], NULL, 10);
+    struct node * l = (*primeListPtr)(n);
+    (*printAndFreePtr)(l);
 
     return 0;
 }
